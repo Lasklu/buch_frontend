@@ -81,14 +81,14 @@ render() {
                 loopClonesPerSide={2}
                 autoplay={true}
                 autoplayDelay={500}
-                autoplayInterval={3000}
+                autoplayInterval={4000}
                 onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index }) }
             />
             <Pagination
                 dotsLength={ENTRIES1.length}
                 activeDotIndex={slider1ActiveSlide}
                 containerStyle={styles.paginationContainer}
-                dotColor={'rgba(255, 255, 255, 0.92)'}
+                dotColor={'rgba(54,54,54,0.92)'}
                 dotStyle={styles.paginationDot}
                 inactiveDotColor={colors.black}
                 inactiveDotOpacity={0.4}

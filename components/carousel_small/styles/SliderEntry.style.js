@@ -14,8 +14,8 @@ const slideWidth = wp(75);
 const itemHorizontalMargin = wp(2);
 
 export const sliderWidth = viewportWidth;
-export const itemWidth = slideWidth + itemHorizontalMargin * 2;
-
+//export const itemWidth = slideWidth + itemHorizontalMargin  / 20;
+export const itemWidth = wp(60);
 const entryBorderRadius = 8;
 
 export default StyleSheet.create({
@@ -42,7 +42,9 @@ export default StyleSheet.create({
         marginBottom: IS_IOS ? 0 : -1, // Prevent a random Android rendering issue
         backgroundColor: 'white',
         borderTopLeftRadius: entryBorderRadius,
-        borderTopRightRadius: entryBorderRadius
+        borderTopRightRadius: entryBorderRadius,
+        borderBottomLeftRadius: entryBorderRadius,
+        borderBottomRightRadius: entryBorderRadius,
     },
     imageContainerEven: {
         backgroundColor: colors.black

@@ -47,6 +47,15 @@ export default class SliderEntry extends Component {
         ) : false;
 
         return (
+            <View style = {{shadowColor: "#000",
+                shadowOffset: {
+                    width: 2,
+                    height: 3,
+                },
+                shadowOpacity: 0.5,
+                shadowRadius: 4,
+
+                elevation: 18,}}>
             <TouchableOpacity
                 activeOpacity={1}
                 style={styles.slideInnerContainer}
@@ -55,11 +64,22 @@ export default class SliderEntry extends Component {
                 <View style={styles.shadow} />
                 <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
                     { this.image }
-
+                    <View style={[styles.radiusMask, even ? styles.radiusMaskEven : {}]} />
+                </View>
+                <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
+                    { uppercaseTitle }
+                    <Text
+                        style={[styles.subtitle, even ? styles.subtitleEven : {}]}
+                        numberOfLines={2}
+                    >
+                        { subtitle }
+                    </Text>
                 </View>
 
             </TouchableOpacity>
-        );/*
+            </View>
+        );
+        /*
         <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
             { uppercaseTitle }
             <Text

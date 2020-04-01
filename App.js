@@ -1,16 +1,70 @@
 import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { SplashScreen } from 'expo';
+import {Platform, StatusBar, StyleSheet, View} from 'react-native';
+import {SplashScreen} from 'expo';
 import * as Font from 'expo-font';
-import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
+import {Ionicons} from '@expo/vector-icons';
+import {NavigationContainer} from '@react-navigation/native';
+//import { createStackNavigator } from '@react-navigation/stack';
+//import { createStackNavigator, createAppContainer } from "react-navigation";
+import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
+import Navigator from './screens/Navigator';
+import {SafeAreaProvider} from "react-native-safe-area-context";
+import {createAppContainer} from "react-navigation";
+import {createStackNavigator} from "react-navigation-stack";
+import LoadAssets from "./LoadAssets";
+import BookDetailScreen from "./screens/BookDetailScreen";
+import LinksScreen from "./screens/LinksScreen";
 
-const Stack = createStackNavigator();
+const AppNavigator = createAppContainer(
+    createStackNavigator(
+        {
+                Navigator: {
+                    screen: Navigator,
+                    navigationOptions: {
+                        title: "Can it be done in React Native?"
+                    }
+                }
+            }
+    ));
 
+
+/*
+const Stack = createSharedElementStackNavigator({
+       BottomTabNavigator
+    },
+    {
+      headerMode:'none'
+    }
+
+);
+
+ */
+/*
+export default createSharedElementStackNavigator(
+    {
+      Home: HomeScreen,
+      Book: BookDetailScreen,
+      Links: LinksScreen(),
+    },
+    {
+      initialRouteName: 'List',
+    }
+);
+
+ */
+
+
+//const AppContainer = createAppContainer(stackNavigator);
+/*
+const StackNavigator = createSharedElementStackNavigator(
+
+
+);
+ */
+
+/*
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
   const [initialNavigationState, setInitialNavigationState] = React.useState();
@@ -51,7 +105,9 @@ export default function App(props) {
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
         <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
           <Stack.Navigator>
-            <Stack.Screen name="Root" component={BottomTabNavigator} />
+
+
+            <Stack.Screen name="Navigator" component={Navigator}/>
           </Stack.Navigator>
         </NavigationContainer>
       </View>
@@ -65,3 +121,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
+
+ */
+export default () => (
+    <LoadAssets {...{}}>
+        <StatusBar barStyle="light-content"/>
+        <SafeAreaProvider>
+            <AppNavigator/>
+        </SafeAreaProvider>
+    </LoadAssets>
+);

@@ -1,5 +1,15 @@
 import React from 'react';
-import {View, ListView, FlatList, StyleSheet, Text, Image, TouchableHighlight, Dimensions} from 'react-native';
+import {
+    View,
+    ListView,
+    FlatList,
+    StyleSheet,
+    Text,
+    Image,
+    TouchableHighlight,
+    Dimensions,
+    TouchableWithoutFeedback
+} from 'react-native';
 import {Button} from 'react-native-elements'
 
 import CustomRow from './customRow';
@@ -56,12 +66,13 @@ const CustomListview = ({itemList}) => (
             horizontal={true}
             data={itemList}
             renderItem={({item}) =>
+                <TouchableWithoutFeedback onPress={()=> console.log("HLKJHALDK")}>
                     <View style={{ shadowColor: "#000",
                         shadowOffset: {
                             width: 2,
                             height: 3,
                         },
-                        shadowOpacity: 0.8,
+                        shadowOpacity: 0.5,
                         shadowRadius: 4,
 
                         elevation: 18,}}>
@@ -72,6 +83,7 @@ const CustomListview = ({itemList}) => (
                             </View>
                         </View>
                     </View>
+                </TouchableWithoutFeedback>
             }
         />
     </View>
