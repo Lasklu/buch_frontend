@@ -4,19 +4,19 @@ import {SplashScreen} from 'expo';
 import * as Font from 'expo-font';
 import {Ionicons} from '@expo/vector-icons';
 import {NavigationContainer} from '@react-navigation/native';
-//import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 //import { createStackNavigator, createAppContainer } from "react-navigation";
 import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
-import Navigator from './screens/Navigator';
+
 import {SafeAreaProvider} from "react-native-safe-area-context";
 import {createAppContainer} from "react-navigation";
-import {createStackNavigator} from "react-navigation-stack";
+//import {createStackNavigator} from "react-navigation-stack";
 import LoadAssets from "./LoadAssets";
 import BookDetailScreen from "./screens/BookDetailScreen";
 import LinksScreen from "./screens/LinksScreen";
-
+/*
 const AppNavigator = createAppContainer(
     createStackNavigator(
         {
@@ -28,7 +28,7 @@ const AppNavigator = createAppContainer(
                 }
             }
     ));
-
+*/
 
 /*
 const Stack = createSharedElementStackNavigator({
@@ -64,7 +64,7 @@ const StackNavigator = createSharedElementStackNavigator(
 );
  */
 
-/*
+const Stack = createStackNavigator();
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
   const [initialNavigationState, setInitialNavigationState] = React.useState();
@@ -107,7 +107,7 @@ export default function App(props) {
           <Stack.Navigator>
 
 
-            <Stack.Screen name="Navigator" component={Navigator}/>
+            <Stack.Screen name="Root" component={BottomTabNavigator}/>
           </Stack.Navigator>
         </NavigationContainer>
       </View>
@@ -122,12 +122,3 @@ const styles = StyleSheet.create({
   },
 });
 
- */
-export default () => (
-    <LoadAssets {...{}}>
-        <StatusBar barStyle="light-content"/>
-        <SafeAreaProvider>
-            <AppNavigator/>
-        </SafeAreaProvider>
-    </LoadAssets>
-);

@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Dimensions, Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
-import { useNavigation } from "react-navigation-hooks";
 import Colors from '../constants/Colors'
 import Carousel from '../components/carousel_small/Carousel'
 import {NavigationContainer} from '@react-navigation/native';
@@ -79,7 +78,7 @@ let startAncestor;
 let startNode;
 const HomeScreen =() => {
 
-        const { navigate, isFocused } = useNavigation();
+
         return (
             <View style={styles.container}>
                 <View style={{
@@ -94,10 +93,7 @@ const HomeScreen =() => {
 
 
                 <ScrollView style={{flex: 1, marginBottom: '10%',}}>
-                    <TouchableOpacity onPress={()=> navigate('BookDetailScreen')}>
-<SharedElement id='5'>
-                    <Image source={require('../assets/images/rest2.jpg')}></Image>
-</SharedElement>
+                    <TouchableOpacity onPress={()=> console.log("TODO")}>
                     </TouchableOpacity>
                     <View style={{flexDirection: 'row'}}>
 
